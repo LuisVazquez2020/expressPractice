@@ -11,16 +11,17 @@ server.listen(3030, () => {
 }); */
 
 const express = require('express');
+const morgan = require('morgan');
 const app = express();
 
-function logger(req, res, next){
+/* function logger(req, res, next){
 console.log(`Route received: ${ req.protocol }://${req.get('host')}${req.originalUrl} `);
 next();
-}
+} */
 
 //---MIDDLEWARE---
 app.use(express.json());
-app.use(logger);
+app.use(morgan('dev'));
 //-----------------------
 
 
