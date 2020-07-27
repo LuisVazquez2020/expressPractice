@@ -25,9 +25,9 @@ app.use(morgan('dev'));
 //-----------------------
 
 
-app.get('/', (req, res) => {
+/* app.get('/', (req, res) => {
     res.send('hola mundo')
-});
+}); */
 app.get('/user', (req, res) => {
     res.json({
         name: 'Luis',
@@ -55,6 +55,8 @@ app.put('/user/:id', (req, res) => {
 app.delete('/user/:id', (req, res) => {
     res.send(`user ${req.params.id} deleted`)
 });
+
+app.use(express.static('public'));
 
 app.listen(3000, () => {
     console.log('app is running on port 3000');
